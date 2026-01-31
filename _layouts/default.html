@@ -15,7 +15,6 @@
       --accent-hover: #79c0ff;
       --green: #3fb950;
       --orange: #d29922;
-      --red: #f85149;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -23,52 +22,51 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
     }
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
     header {
-      text-align: center;
-      padding: 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
-    header h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, var(--accent), #a371f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-    header p { color: var(--text-muted); }
-    nav { margin-top: 1rem; }
-    nav a {
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
       color: var(--accent);
       text-decoration: none;
-      margin: 0 1rem;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--accent-hover); }
-    main { min-height: 60vh; }
+    nav a:hover { color: var(--accent); }
+    main { min-height: 70vh; }
     footer {
       text-align: center;
-      padding: 2rem 0;
-      margin-top: 3rem;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
       border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
-    a { color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-hover); }
   </style>
-  {{ page.extra_css }}
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>🕵️ {{ site.title }}</h1>
-      <p>{{ site.description }}</p>
+      <a href="{{ site.baseurl }}/" class="logo">🕵️ Alpha Reports</a>
       <nav>
         <a href="{{ site.baseurl }}/">首页</a>
+        <a href="{{ site.baseurl }}/reports/">博主分析</a>
+        <a href="{{ site.baseurl }}/daily/">每日热门</a>
         <a href="{{ site.baseurl }}/about/">关于</a>
       </nav>
     </header>
@@ -76,7 +74,7 @@
       {{ content }}
     </main>
     <footer>
-      <p>Powered by Jarvis 🤖 | {{ site.time | date: "%Y" }}</p>
+      Powered by Jarvis 🤖 | {{ site.time | date: "%Y" }}
     </footer>
   </div>
 </body>

@@ -2,68 +2,65 @@
 layout: default
 ---
 <style>
-  .reports-grid {
-    display: grid;
-    gap: 1.5rem;
+  .hero { text-align: center; padding: 2rem 0 3rem; }
+  .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  .hero p { color: var(--text-muted); }
+  .section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
-  .report-card {
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: block;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: border-color 0.2s;
   }
-  .report-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
-  }
-  .report-card h2 {
-    color: var(--text);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-  .report-card .handle {
-    color: var(--accent);
-    font-size: 1rem;
-  }
-  .report-card .meta {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-  }
-  .intro {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(88,166,255,0.1), rgba(163,113,247,0.1));
-    border-radius: 16px;
-  }
-  .intro h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .intro p {
-    color: var(--text-muted);
-  }
+  .card:hover { border-color: var(--accent); }
+  .card-title { font-weight: 600; margin-bottom: 0.3rem; }
+  .card-meta { font-size: 0.85rem; color: var(--text-muted); }
+  .view-all { font-size: 0.9rem; margin-left: auto; }
 </style>
 
-<div class="intro">
-  <h2>📊 深度分析加密货币 Twitter 博主</h2>
-  <p>追踪行业 KOL，挖掘 Alpha 信息，把握市场脉搏</p>
+<div class="hero">
+  <h1>Crypto Alpha Reports</h1>
+  <p>追踪加密货币 KOL，挖掘 Alpha 信息</p>
 </div>
 
-<div class="reports-grid">
-  {% for report in site.reports %}
-  <a href="{{ report.url | relative_url }}" class="report-card">
-    <span class="handle">@{{ report.handle }}</span>
-    <h2>{{ report.title }}</h2>
-    <div class="meta">
-      <span>📅 {{ report.date | date: "%Y-%m-%d" }}</span>
-      <span>• {{ report.tweets_count }} 条推文分析</span>
-    </div>
-  </a>
-  {% endfor %}
+<div class="section">
+  <div class="section-title">
+    📊 最新博主分析
+    <a href="{{ site.baseurl }}/reports/" class="view-all">查看全部 →</a>
+  </div>
+  <div class="grid">
+    {% assign sorted_reports = site.reports | sort: 'date' | reverse %}
+    {% for report in sorted_reports limit:3 %}
+    <a href="{{ report.url | relative_url }}" class="card">
+      <div class="card-title">@{{ report.handle }}</div>
+      <div class="card-meta">{{ report.tweets_count }} 条推文 · {{ report.category }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">
+    🔥 每日热门
+    <a href="{{ site.baseurl }}/daily/" class="view-all">查看全部 →</a>
+  </div>
+  <div class="grid">
+    {% assign sorted_daily = site.daily | sort: 'date' | reverse %}
+    {% for post in sorted_daily limit:3 %}
+    <a href="{{ post.url | relative_url }}" class="card">
+      <div class="card-title">{{ post.date | date: "%Y-%m-%d" }}</div>
+      <div class="card-meta">{{ post.title }}</div>
+    </a>
+    {% endfor %}
+  </div>
 </div>

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<style>
+  .daily-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .daily-header h1 { margin-bottom: 0.3rem; }
+  .daily-header .meta { color: var(--text-muted); }
+  .time-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .time-block h2 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .tweet {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tweet:last-child { border-bottom: none; }
+  .tweet-author { font-weight: 600; margin-bottom: 0.3rem; }
+  .tweet-text { color: var(--text-muted); font-size: 0.95rem; }
+  .tweet-stats { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem; }
+  .back { margin-bottom: 1rem; color: var(--text-muted); }
+</style>
+
+<a href="{{ site.baseurl }}/daily/" class="back">← 返回日历</a>
+
+<div class="daily-header">
+  <h1>🔥 {{ page.date | date: "%Y年%m月%d日" }} 热门</h1>
+  <div class="meta">{{ page.title }}</div>
+</div>
+
+{{ content }}

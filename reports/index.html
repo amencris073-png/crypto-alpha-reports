@@ -1,0 +1,35 @@
+---
+layout: default
+title: 博主分析
+---
+<style>
+  h1 { margin-bottom: 1.5rem; }
+  .list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: border-color 0.2s;
+  }
+  .item:hover { border-color: var(--accent); }
+  .handle { font-weight: 600; min-width: 140px; }
+  .desc { color: var(--text-muted); flex: 1; }
+  .meta { font-size: 0.85rem; color: var(--text-muted); }
+</style>
+
+<h1>📊 博主分析</h1>
+
+<div class="list">
+  {% assign sorted = site.reports | sort: 'date' | reverse %}
+  {% for report in sorted %}
+  <a href="{{ report.url | relative_url }}" class="item">
+    <span class="handle">@{{ report.handle }}</span>
+    <span class="desc">{{ report.title }}</span>
+    <span class="meta">{{ report.tweets_count }} 条</span>
+  </a>
+  {% endfor %}
+</div>
