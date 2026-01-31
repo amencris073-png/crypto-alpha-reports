@@ -1,0 +1,18 @@
+title: Crypto Alpha Reports
+description: 加密货币 Twitter 博主分析报告
+baseurl: "/crypto-alpha-reports"
+url: "https://amencris073-png.github.io"
+theme: minima
+markdown: kramdown
+
+collections:
+  reports:
+    output: true
+    permalink: /reports/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "reports"
+    values:
+      layout: "report"
