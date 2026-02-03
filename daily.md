@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 每日热门
+permalink: /daily/
 ---
 <style>
   h1 { margin-bottom: 1.5rem; }
