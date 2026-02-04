@@ -1,0 +1,43 @@
+---
+layout: default
+title: YouTube 深度技术拆解
+---
+<style>
+  h1 { margin-bottom: 1.5rem; }
+  .list { display: flex; flex-direction: column; gap: 1rem; }
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+  }
+  .item:hover { 
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .title { font-size: 1.2rem; font-weight: 600; color: var(--accent); }
+  .meta { font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 1rem; }
+  .tag { background: rgba(var(--accent-rgb), 0.1); color: var(--accent); padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+</style>
+
+<h1>📺 YouTube 深度技术拆解</h1>
+
+<div class="list">
+  {% assign sorted = site.youtube | sort: 'date' | reverse %}
+  {% for report in sorted %}
+  <a href="{{ report.url | relative_url }}" class="item">
+    <span class="title">{{ report.title }}</span>
+    <div class="meta">
+      <span>📅 {{ report.date | date: "%Y-%m-%d" }}</span>
+      <span class="tag">{{ report.category }}</span>
+    </div>
+  </a>
+  {% endfor %}
+</div>

@@ -67,6 +67,22 @@ layout: default
 
 <div class="section">
   <div class="section-title">
+    📺 YouTube 深度技术拆解
+    <a href="{{ site.baseurl }}/youtube/" class="view-all">查看全部 →</a>
+  </div>
+  <div class="grid">
+    {% assign sorted_yt = site.youtube | sort: 'date' | reverse %}
+    {% for post in sorted_yt limit:3 %}
+    <a href="{{ post.url | relative_url }}" class="card">
+      <div class="card-title">{{ post.title }}</div>
+      <div class="card-meta">{{ post.date | date: "%Y-%m-%d" }} · {{ post.category }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">
     🔥 每日热门
     <a href="{{ site.baseurl }}/daily/" class="view-all">查看全部 →</a>
   </div>
