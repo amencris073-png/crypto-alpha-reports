@@ -51,6 +51,22 @@ layout: default
 
 <div class="section">
   <div class="section-title">
+    🔮 Polymarket 事件分析
+    <a href="{{ site.baseurl }}/polymarket_analysis/" class="view-all">查看全部 →</a>
+  </div>
+  <div class="grid">
+    {% assign sorted_poly = site.polymarket_analysis | sort: 'date' | reverse %}
+    {% for post in sorted_poly limit:3 %}
+    <a href="{{ post.url | relative_url }}" class="card">
+      <div class="card-title">{{ post.title }}</div>
+      <div class="card-meta">{{ post.date | date: "%Y-%m-%d" }} · {{ post.category }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">
     🔥 每日热门
     <a href="{{ site.baseurl }}/daily/" class="view-all">查看全部 →</a>
   </div>

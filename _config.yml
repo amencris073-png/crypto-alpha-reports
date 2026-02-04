@@ -12,6 +12,9 @@ collections:
   daily:
     output: true
     permalink: /daily/:year/:month/:day/
+  polymarket_analysis:
+    output: true
+    permalink: /polymarket_analysis/:name/
 
 defaults:
   - scope:

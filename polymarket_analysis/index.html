@@ -1,0 +1,43 @@
+---
+layout: default
+title: Polymarket 事件分析
+---
+<style>
+  .header { padding: 2rem 0; }
+  .list { display: flex; flex-direction: column; gap: 1rem; }
+  .item {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card-bg);
+  }
+  .item-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+  .item-meta { font-size: 0.9rem; color: var(--text-muted); }
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+</style>
+
+<div class="header">
+  <h1>Polymarket 事件分析</h1>
+  <p>按照量化与监控准则筛选的高价值预测市场</p>
+</div>
+
+<div class="list">
+  {% assign sorted_poly = site.polymarket_analysis | sort: 'date' | reverse %}
+  {% for post in sorted_poly %}
+  <div class="item">
+    <a href="{{ post.url | relative_url }}" class="item-title">{{ post.title }}</a>
+    <div class="item-meta">
+      <span class="tag">{{ post.category | upcase }}</span>
+      {{ post.date | date: "%Y-%m-%d" }}
+    </div>
+  </div>
+  {% endfor %}
+</div>
