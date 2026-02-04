@@ -1,0 +1,9 @@
+## Analysis: BTS 'Arirang' First Week Album Sales?
+
+- **Category**: Monitoring
+- **Cyclicality**: Low - While album releases can follow a somewhat predictable schedule, the sales figures themselves do not exhibit significant daily, weekly, or monthly patterns that can be easily predicted or modeled. Album sales are heavily influenced by factors such as marketing campaigns, fan engagement, and overall cultural impact, which can vary greatly between different albums and artists.
+- **Automation**: Yes - The outcome data can be automatically retrieved from the specified primary resolution source, the "HITS TOP 50" list on Hits Daily Double (https://hitsdailydouble.com/sales_plus_streaming). The figure in the column titled "Activity" can be scraped or accessed via API (if available) once the results are finalized for the album's debut week.
+- **Suitability Score**: 6
+- **Reasoning**: This event is somewhat suitable for trading due to the possibility of automating the outcome data retrieval. However, the lack of significant cyclicality in album sales data reduces the predictability and reliability of this event for trading purposes.
+
+Technical Note: To automate the data retrieval, one can use web scraping techniques (e.g., BeautifulSoup, Scrapy) to extract the relevant data from the "HITS TOP 50" list on Hits Daily Double. Alternatively, if an API is available, it can be used to fetch the data in a more structured and reliable manner. It is essential to ensure that the data retrieval process is done in compliance with the terms of service of Hits Daily Double and does not overload their servers.
