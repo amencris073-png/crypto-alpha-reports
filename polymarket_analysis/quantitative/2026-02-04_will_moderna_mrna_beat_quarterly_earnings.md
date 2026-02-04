@@ -1,0 +1,9 @@
+ ## Analysis: Will Moderna (MRNA) beat quarterly earnings?
+
+- **Category**: Quantitative
+- **Cyclicality**: High - Quarterly earnings releases follow a predictable 3-month cycle, occurring regularly during designated "earnings seasons" (e.g., January/February for Q4 results, April/May for Q1). While the exact date may shift slightly from estimates, the quarterly pattern is consistent and recurring across all publicly traded companies.
+- **Automation**: Yes - GAAP EPS data is retrievable via SEC EDGAR API (8-K filings), financial data providers (Bloomberg, Refinitiv, Alpha Vantage), and scrapable from SeekingAlpha. The resolution depends on a straightforward numerical comparison (reported EPS > -$2.60) with objective, machine-readable inputs.
+- **Suitability Score**: 8/10
+- **Reasoning**: This is a classic quantitative event featuring a fixed consensus strike price (-$2.60) and binary outcome based on standardized accounting metrics. The quarterly recurrence provides predictable trading windows, while multiple data sources (primary company filings and secondary SeekingAlpha) ensure reliable automation. Minor complexity arises from distinguishing GAAP vs. non-GAAP figures and handling the 96-hour/45-day resolution timing rules, but these are manageable with proper logic.
+
+**Technical Note**: Deploy an EDGAR 8-K filing watcher for Moderna (CIK: 1682852) to detect earnings releases immediately. Use NLP or regex parsing to extract "diluted GAAP EPS" (or basic if specified) from the filing text/HTML. As a backup, poll SeekingAlpha's earnings calendar API or scrape their earnings tables. Implement a timer system to enforce the 96-hour resolution window (from 4:00 PM ET on earnings day) and a calendar check for the 45-day expiration from February 13, 2026. Round all figures to the nearest cent using standard rounding rules before comparison.
