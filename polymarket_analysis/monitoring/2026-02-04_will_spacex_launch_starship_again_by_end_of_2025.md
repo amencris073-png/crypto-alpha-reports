@@ -1,0 +1,9 @@
+## Analysis: Will SpaceX launch Starship again by end of 2025?
+
+- **Category**: Monitoring
+- **Cyclicality**: Low - This event does not exhibit significant daily, weekly, or monthly patterns. The launch of a Starship rocket is a one-time event that is dependent on various factors such as technological readiness, weather conditions, and regulatory approvals. While SpaceX may have a general timeline for launches, there is no recurring pattern that can be exploited for trading purposes.
+- **Automation**: Yes - The outcome data can be automatically retrieved via public APIs or static pages. SpaceX typically announces launch dates and outcomes on their official website and social media channels. Additionally, there are several space-related APIs and websites that provide real-time information on rocket launches, such as the SpaceX API, Spaceflight Now, or RocketLaunch.Live.
+- **Suitability Score**: 6
+- **Reasoning**: This event is suitable for monitoring, but not ideal for quantitative trading due to the lack of cyclicality. The outcome can be automated, but the trading strategy would need to rely on fundamental analysis and event-driven trading rather than statistical patterns.
+
+Technical Note: To automate this event, one can use web scraping techniques to monitor SpaceX's official website or social media channels for launch announcements. Alternatively, APIs such as the SpaceX API or Spaceflight Now can be used to retrieve real-time information on rocket launches. A simple script can be written to check for updates on a regular basis and trigger a trade when the launch is confirmed. However, this would require a more complex trading strategy that takes into account various factors such as risk management, market sentiment, and fundamental analysis.
