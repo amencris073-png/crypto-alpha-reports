@@ -1,9 +1,9 @@
 ## Analysis: Will Sunoco (SUN) beat quarterly earnings?
 
 - **Category**: Monitoring
-- **Cyclicality**: Low - This event is tied to a specific quarterly earnings release, which is a relatively infrequent occurrence. While earnings releases do follow a somewhat regular schedule, the exact dates can vary, and the outcome is heavily dependent on various market and economic factors.
-- **Automation**: Yes - The outcome data can be automatically retrieved via public APIs or static pages, such as SeekingAlpha or the company's official earnings documents. These sources typically provide the necessary GAAP EPS figures in a structured format.
+- **Cyclicality**: This event exhibits a quarterly pattern, as earnings releases occur every quarter. However, the exact date and time of the release may vary, and the outcome is not directly influenced by recurring patterns. Therefore, cyclicality is considered Low.
+- **Automation**: The outcome data can be automatically retrieved via public APIs or static pages, such as SeekingAlpha or the company's official earnings documents. Automation is considered Yes.
 - **Suitability Score**: 7
-- **Reasoning**: This event is suitable for trading, but its relatively low cyclicality means it doesn't exhibit the predictable patterns that are ideal for quantitative analysis. However, the ability to automate the outcome data retrieval makes it a good candidate for monitoring.
+- **Reasoning**: This event is suitable for trading, but its cyclicality is limited to quarterly patterns, which may not provide enough recurring opportunities for quantitative analysis. However, the outcome data can be automatically retrieved, making it easier to monitor and trade.
 
-Technical Note: To automate this event, you can use APIs like Alpha Vantage or Intrinio to retrieve the GAAP EPS figures from SeekingAlpha or the company's official earnings documents. You can also use web scraping techniques to extract the relevant data from static pages. Additionally, you can set up a scheduler to check for updates on the earnings release date and retrieve the outcome data accordingly.
+Technical Note: To automate this event, one can use web scraping techniques or APIs to retrieve the GAAP EPS figure from SeekingAlpha or the company's official earnings documents. A script can be set up to run at the estimated earnings release time to fetch the data and compare it to the strike price. If the data is not available within the specified time frame, the script can resolve the market to "No" according to the rules.
