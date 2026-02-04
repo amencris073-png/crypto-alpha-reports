@@ -1,3 +1,12 @@
+---
+layout: report
+title: "YouTube 深度技术简报: 套利、Web3、MEV"
+handle: YouTube
+date: 2026-02-04
+tweets_count: 6
+category: YouTube Briefing
+---
+
 # YouTube 深度技术简报：套利、Web3、MEV 与量化交易 (过去 7 天)
 
 **报告日期：** 2026-02-04
